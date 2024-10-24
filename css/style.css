@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Silkscreen&display=swap");
+
+body {
+  position: relative;
+  display: block;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+  background-color: rgba(150, 144, 144, 0.167);
+}
+.form-login {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-top: 70%;
+  margin-bottom: auto;
+}
+.form-login .tajuk {
+  position: absolute;
+  transform: translateY(-100px);
+  justify-content: center;
+}
+.form-login .tajuk img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.form-login .tajuk h5 {
+  font-weight: 900;
+  font-family: "Silkscreen", cursive;
+}
+.form-group {
+  padding-bottom: 20px;
+}
+.form-group input {
+  background-color: rgba(150, 144, 144, 0.267);
+}
+.form-group .mata {
+  display: flex;
+  justify-content: right;
+}
+
+.form-group .mata span {
+  position: absolute;
+  cursor: pointer;
+  display: flex;
+  justify-content: right;
+  margin-top: -33px;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.text-box .btn {
+  background-color: rgb(44, 155, 72);
+  color: aliceblue;
+}
+
+@media (min-width: 992px) {
+  body {
+    position: relative;
+    display: block;
+    justify-content: center;
+    font-family: "Poppins", sans-serif;
+    background-color: rgba(150, 144, 144, 0.167);
+  }
+  .form-login {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 20%;
+    margin-bottom: auto;
+  }
+  .form-login .tajuk {
+    position: absolute;
+    transform: translateY(-100px);
+    justify-content: center;
+  }
+  .form-login .tajuk img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .form-login .tajuk h5 {
+    font-weight: 900;
+    font-family: "Silkscreen", cursive;
+  }
+  .form-group {
+    padding-bottom: 20px;
+  }
+  .form-group input {
+    background-color: rgba(150, 144, 144, 0.267);
+  }
+  .form-group .mata {
+    display: flex;
+    justify-content: right;
+  }
+
+  .form-group .mata span {
+    position: absolute;
+    cursor: pointer;
+    display: flex;
+    justify-content: right;
+    margin-top: -33px;
+    background-color: rgba(255, 255, 255, 0);
+  }
+
+  .text-box .btn {
+    background-color: rgb(44, 155, 72);
+    color: aliceblue;
+  }
+}

@@ -1,0 +1,7 @@
+{
+    "require": {
+        "phpoffice/phpspreadsheet": "^1.25",
+        "ultramsg/whatsapp-php-sdk": "^2.0",
+        "mpdf/mpdf": "^8.1"
+    }
+}
