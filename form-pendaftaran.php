@@ -158,12 +158,8 @@ error_reporting(0);
                     <label for="alamat">Alamat Tinggal Anda</label>
                     <input type="text" class="form-control" placeholder="Masukan alamat tinggal anda" name="alamat" required="true">
                 </div>
-            </div>           
-            <div class="col-sm-4">
-                <label for="peengalaman">Pengalaman Kerja</label>
-                <input type="text" class="form-control" placeholder="Bagian | Nama Perusahaan" name="pengalaman" required="true">
-            </div>             
-            <div class="col-sm-8">
+            </div>                                   
+            <div class="col-sm-6">
                 <label for="Vaksin">Status Vaksinasi</label>
                 <select name="vaksin" id="vaksin" class="form-control" required="true">
                     <option value="-">--Pilih--</option>
@@ -172,14 +168,31 @@ error_reporting(0);
                     <option value="3">Vaksin-3(Booster)</option>
                 </select>
             </div>
-            <div class="col-sm-12">
+            <div class="col-sm-6">
                 <label for="tujuan">Kantor Tujuan</label>
                 <select name="tujuan" id="tujuan" class="form-control" required="true">
                     <option value="">--Pilih Kantor Tujuan--</option>
                     <option value="Cikarang">Kantor Cikarang Jl. Amir Hamzah No. 110 Sertajaya Cikarang Timur Kab. Bekasi</option>
                     <option value="Purwakarta">Kantor Cabang Purwakarta Ds. Dangdeur Kec. Bungursari Kab. Purwakarta</option>
                 </select>
-            </div>                     
+            </div>         
+            
+            <hr>
+            <div class="col-sm-12 mt-5">
+                <h4>Pengalaman Kerja</h4>
+            </div>
+            <div class="col-sm-4">
+                <label for="peengalaman">Nama Perusahaan</label>
+                <input type="text" class="form-control" placeholder="isi dengan nama perusahaan" name="pt" required="true">
+            </div> 
+            <div class="col-sm-4">
+                <label for="peengalaman">Bagian/Posisi</label>
+                <input type="text" class="form-control" placeholder="isi dengan posisi/bagian/jabatan" name="jabatan" required="true">
+            </div> 
+            <div class="col-sm-4">
+                <label for="peengalaman">Masa Kerja</label>
+                <input type="text" class="form-control" placeholder="isi dengan masa kerja cth: 1 Tahun" name="masa_kerja" required="true">
+            </div> 
             
         
         <div class="col-sm-4 tombol mt-3">            
@@ -261,7 +274,11 @@ if(isset($_POST['tambah'])){
     $alamat = htmlspecialchars($_POST['alamat']);
     $no_hp = htmlspecialchars($_POST['no_hp']);
     $no_hpDarurat = $_POST['no_hpDarurat'];
-    $pengalaman = htmlspecialchars($_POST['pengalaman']);
+    // 
+    $pt = htmlspecialchars($_POST['pt']);
+    $jabatan = htmlspecialchars($_POST['jabatan']);
+    $masa_kerja = htmlspecialchars($_POST['masa_kerja']);
+    $pengalaman = $pt . " - " . $jabatan . " - " . $masa_kerja;
     $vaksin = $_POST['vaksin'];
     $tujuan = $_POST['tujuan'];
     $status = "-";

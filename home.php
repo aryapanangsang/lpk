@@ -76,12 +76,7 @@ $row2 = mysqli_fetch_assoc($tes2);
         font-weight: bold;
       }
 
-      @media only screen and (max-width: 768px) {
-        /* For mobile phones: */
-        [class*="col-"] {
-          width: 100%;
-        }
-      }
+     
     </style>
     
 
@@ -104,14 +99,9 @@ $row2 = mysqli_fetch_assoc($tes2);
       <div class="row justify-content-center">
         <div class="col-lg-12">
           <!-- Breadcrumb -->
-          <nav aria-label="breadcrumb" class="main-breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item active" aria-current="page">Home</li>
-              <li class="breadcrumb-item"><a href="profile_pelamar.php">Profile Saya</a></li>
-              <li class="breadcrumb-item"><a href="lowongan.php">Lowongan</a></li>
-              <li class="breadcrumb-item"><a href="logout.php">Logout</a></li>
-            </ol>
-          </nav>
+          <?php
+            include('partials/breadcumb.php');
+          ?>
           <!-- /Breadcrumb -->
     
           <div class="row gutters-sm">

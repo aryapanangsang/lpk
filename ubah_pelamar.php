@@ -91,13 +91,9 @@ $ambil = mysqli_query($con,"SELECT * FROM pelamar WHERE nik='$_SESSION[level]'")
         <div class="col-lg-12">
           <!-- Breadcrumb -->
           
-            <nav aria-label="breadcrumb" class="main-breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item" id="nav"><a href="home.php">Home</a></li>
-                    <li class="breadcrumb-item active" id="nav" aria-current="page">Profil Pelamar</a></li>
-                    <li class="breadcrumb-item" id="nav"><a href="logout.php">Logout</a></li>
-                </ol>             
-            </nav>
+          <?php
+            include('partials/breadcumb.php');
+          ?>
 
           <!-- /Breadcrumb -->
           <form action="" method="post" enctype="multipart/form-data">
@@ -220,13 +216,46 @@ $ambil = mysqli_query($con,"SELECT * FROM pelamar WHERE nik='$_SESSION[level]'")
                     </div>
                     <hr>  
                     <div class="row">
+                      <div class="col-sm-12">
+                        <h4 class="text-center">Pengalaman Kerja</h4>
+                      </div>
+                    </div>
+                    <div class="row">
+                    <?php
+                        $pengalaman = explode("-", $data['pengalaman']);
+
+                        if(count($pengalaman)===3) {
+                          $pt = $pengalaman[0];
+                          $jabatan = $pengalaman[1];
+                          $masa_kerja = $pengalaman[2];
+                        }
+                      ?>
                       <div class="col-sm-3">
-                        <h6 class="mb-0">Pengalaman</h6>
+                        <h6 class="mb-0">Nama Perusahaan</h6>
                       </div>
                       <div class="col-sm-9 text-secondary">
-                          <input type="text" class="form-control" name="pengalaman" value="<?= $data['pengalaman'] ?>">
+                          <input type="text" class="form-control" name="pt" value="<?= $pt?>">
                       </div>
-                    </div>                
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">Jabatan</h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                          <input type="text" class="form-control" name="jabatan" value="<?= $jabatan ?>">
+                      </div>
+                    </div>
+                      <hr>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">Masa Kerja</h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                          <input type="text" class="form-control" name="masa_kerja" value="<?= $masa_kerja?>">
+                      </div>
+                    </div>
+                      <hr>                                    
                   </div>
                 </div>
                 <?php endforeach; ?>
@@ -282,7 +311,11 @@ if (isset($_POST['ubah'])) {
   $bb = htmlspecialchars($_POST['bb']);
   $email = htmlspecialchars($_POST['email']);
   $vaksin = htmlspecialchars($_POST['vaksin']);
-  $pengalaman = htmlspecialchars($_POST['pengalaman']);
+  $pt = htmlspecialchars($_POST['pt']);
+  $jabatan = htmlspecialchars($_POST['jabatan']);
+  $masa_kerja = htmlspecialchars($_POST['masa_kerja']);
+  $pengalaman = $pt . " - " . $jabatan . " - " . $masa_kerja;
+  
   
   $con->query("UPDATE pelamar SET nama_pelamar='$nama',jenis_kelamin='$jenis_kelamin',tempat_lahir='$tempat_lahir',tb='$tb',bb='$bb',no_hpDarurat='$no_hpDarurat',vaksin='$vaksin',email='$email',tgl_lahir='$tgl_lahir',alamat='$alamat',no_hp='$no_hp',pengalaman='$pengalaman' WHERE nik ='$_SESSION[level]'
           ");

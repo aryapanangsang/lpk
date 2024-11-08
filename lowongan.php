@@ -102,14 +102,9 @@ $row2 = mysqli_fetch_assoc($tes2);
       <div class="row justify-content-center">
         <div class="col-lg-12">
           <!-- Breadcrumb -->
-          <nav aria-label="breadcrumb" class="main-breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item active"><a href="home.php">Home</a></li>
-              <li class="breadcrumb-item"><a href="profile_pelamar.php">Profile Saya</a></li>
-              <li class="breadcrumb-item" aria-current="page">Lowongan</li>
-              <li class="breadcrumb-item"><a href="logout.php">Logout</a></li>
-            </ol>
-          </nav>
+          <?php
+            include('partials/breadcumb.php');
+          ?>
           <!-- /Breadcrumb -->
     
           <div class="row">

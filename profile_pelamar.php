@@ -93,14 +93,9 @@ $dataK = mysqli_query($con,"SELECT * FROM referensi INNER JOIN karyawan ON refer
         <div class="col-lg-12">
           <!-- Breadcrumb -->
           
-            <nav aria-label="breadcrumb" class="main-breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item" id="nav"><a href="home.php">Home</a></li>
-                    <li class="breadcrumb-item active" id="nav" aria-current="page">Profil Saya</a></li>
-                    <li class="breadcrumb-item" id="nav"><a href="lowongan.php">Lowongan</a></li>
-                    <li class="breadcrumb-item" id="nav"><a href="logout.php">Logout</a></li>
-                </ol>             
-            </nav>
+          <?php
+            include('partials/breadcumb.php');
+          ?>
 
           <!-- /Breadcrumb -->
     
