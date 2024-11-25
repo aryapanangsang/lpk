@@ -3,7 +3,8 @@
 $hostname ="localhost";
 // $username ="id19664824_lpkpbi";
 $username ="u1482559_lpk-pbi";
-$password ="fBi0YC~*zzd9330m";
+// $password ="fBi0YC~*zzd9330m";
+$password = "anaubamirp";
 $db = "u1482559_web";
 
 // Local
