@@ -255,8 +255,51 @@ $ambil = mysqli_query($con,"SELECT * FROM pelamar WHERE nik='$_SESSION[level]'")
                           <input type="text" class="form-control" name="masa_kerja" value="<?= $masa_kerja?>">
                       </div>
                     </div>
-                      <hr>                                    
-                  </div>
+                      <hr>     
+                      
+                      <!-- Refrensi -->
+                      <div class="row">
+                      <div class="col-sm-12">
+                        <h4 class="text-center">DataReferensi</h4>
+                      </div>
+                    </div>
+                    <div class="row">
+                    <?php
+                        $referensi = explode("-", $data['referensi']);
+
+                        if(count($referensi)===3) {
+                          $nama_referensi = $referensi[0];
+                          $no_hp_referensi = $referensi[1];
+                          $status_referensi = $referensi[2];
+                        }
+                      ?>
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">Nama Perusahaan</h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                          <input type="text" class="form-control" name="nama_referensi" value="<?= $nama_referensi?>">
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">Jabatan</h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                          <input type="text" class="form-control" name="no_hp_referensi" value="<?= $no_hp_referensi ?>">
+                      </div>
+                    </div>
+                      <hr>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">Masa Kerja</h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                          <input type="text" class="form-control" name="hub_status" value="<?= $status_referensi?>">
+                      </div>
+                    </div>
+                      <hr>      
+                  </div>                                  
                 </div>
                 <?php endforeach; ?>
                 
@@ -315,9 +358,13 @@ if (isset($_POST['ubah'])) {
   $jabatan = htmlspecialchars($_POST['jabatan']);
   $masa_kerja = htmlspecialchars($_POST['masa_kerja']);
   $pengalaman = $pt . " - " . $jabatan . " - " . $masa_kerja;
+  $nama_referensi =$_POST['nama_referensi'];
+  $no_hp_referensi =$_POST['no_hp_referensi'];
+  $status_referensi =$_POST['hub_status'];
+  $referensi = $nama_referensi ." - ". $no_hp_referensi . " - " . $status_referensi;
   
   
-  $con->query("UPDATE pelamar SET nama_pelamar='$nama',jenis_kelamin='$jenis_kelamin',tempat_lahir='$tempat_lahir',tb='$tb',bb='$bb',no_hpDarurat='$no_hpDarurat',vaksin='$vaksin',email='$email',tgl_lahir='$tgl_lahir',alamat='$alamat',no_hp='$no_hp',pengalaman='$pengalaman' WHERE nik ='$_SESSION[level]'
+  $con->query("UPDATE pelamar SET nama_pelamar='$nama',jenis_kelamin='$jenis_kelamin',tempat_lahir='$tempat_lahir',tb='$tb',bb='$bb',no_hpDarurat='$no_hpDarurat',vaksin='$vaksin',email='$email',tgl_lahir='$tgl_lahir',alamat='$alamat',no_hp='$no_hp',pengalaman='$pengalaman',referensi='$referensi' WHERE nik ='$_SESSION[level]'
           ");
   
 

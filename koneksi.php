@@ -1,13 +1,16 @@
 <?php
 // Konfigurasi Data Base
-$hostname ="localhost";
-// $username ="id19664824_lpkpbi";
-$username ="u1482559_lpk-pbi";
 // $password ="fBi0YC~*zzd9330m";
+// $username ="id19664824_lpkpbi";
+
+// Hosting
+$hostname ="localhost";
+$username ="u1482559_lpk-pbi";
 $password = "anaubamirp";
 $db = "u1482559_web";
 
 // Local
+// $hostname ="localhost";
 // $username = "root";
 // $password = "";
 // $db = "test";

@@ -24,6 +24,9 @@ $dataK = mysqli_query($con,"SELECT * FROM referensi INNER JOIN karyawan ON refer
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
 
+     <!-- Bootstrap Icons -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
     <!-- MY Font -->
     <link  href="https://fonts.googleapis.com/css?family=Viga" rel="stylesheet">
     <link rel="shortcut icon" href="img/PBI1.png" />
@@ -294,55 +297,64 @@ $dataK = mysqli_query($con,"SELECT * FROM referensi INNER JOIN karyawan ON refer
                   </div>                                    
                 </div>
               </div>
-              <?php endforeach; ?>
+                                       
+              <div class="card mb-3 p-2">
+              <div class="card-body" style="text-align: left;">
+                <?php if($data['referensi'] == "-") :?>
+                  <!-- Button trigger modal -->
+                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#referensi">
+                <i class="bi bi-plus"></i> Tambah Data Referensi
+                </button>
 
-              <?php foreach($dataK as $tampil):?>                
-              <div class="card mb-3">
-                <h3 class="mt-2">Referensi</h3>
-                <div class="card-body" style="text-align: left;">
+                <!-- Modal -->
+                <div class="modal fade" id="referensi" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Data Referensi</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <form action="" method="post">
+                          <label for="nama">Nama Referensi</label>
+                          <input type="text" name="nama_referensi" class="form-control">
+                          <br>
+                          <label for="no_hp_referensi">No Hp. Referensi</label>
+                          <input type="number" name="no_hp_referensi" class="form-control">
+                          <br>
+                          <label for="hub_status">Hubungan / Status Referensi</label>
+                          <input type="text" name="hub_status" class="form-control" placeholder="Teman/Saudara/Karyawan Perusahaan PT. ABC/">
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <button type="submit" class="btn btn-primary" name="referensi">Save</button>
+                        </div>
+                      </div>
+                        </form>
+                  </div>
+                </div>
+                <?php else :?>
+                    <?php
+                        $referensi = explode("-", $data['referensi']);                          
+                        $labels = ["Nama Referensi", "Kontak Referensi", "Status Referensi"]
+                      ?>
+                    <?php foreach($referensi as $item => $value):?>
                   <div class="row">
                     <div class="col-sm-3">
-                      <h6 class="mb-0">NIP</h6>
+                      <h6 class="mb-0">
+                        <?= $labels[$item]?>
+                      </h6>
                     </div>
                     <div class="col-sm-7 text-secondary">
-                      <?= $tampil['nip']?>
+                      <?= $value?>
                     </div>
                   </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Nama Karyawan</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      <?= $tampil['nama_karyawan']?>
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Bagian / Posisi</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      <?= $tampil['bagian']?>
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">No. Hanphone</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      <?= $tampil['no_hp']?>
-                    </div>
-                  </div>
-                  <hr>
+                  <hr>                  
                   <?php endforeach;?>
-                  <!-- <hr>
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <a class="btn btn-info " target="__blank" href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills" style="width: 100px; float: right;">Edit</a>
-                    </div>
-                  </div> -->
+                <?php endif;?>
+                <?php endforeach; ?>
                 </div>
               </div>
             </div>
@@ -396,7 +408,7 @@ $dataK = mysqli_query($con,"SELECT * FROM referensi INNER JOIN karyawan ON refer
           confirmButtonText: 'OK'
         }).then((result) => {
           if (result.isConfirmed) {
-            window.location.href = 'index.php?halaman=tampilPelamar&id=$_GET[id]';      
+            window.location.href = 'http://localhost/lpk-pbi/profile_pelamar.php';      
           } 
         })  
         
@@ -469,4 +481,28 @@ $dataK = mysqli_query($con,"SELECT * FROM referensi INNER JOIN karyawan ON refer
     }
 }
 }
-  ?>
+
+if(isset($_POST['referensi'])){
+  $nama_referensi =$_POST['nama_referensi'];
+  $no_hp_referensi =$_POST['no_hp_referensi'];
+  $status_referensi =$_POST['hub_status'];
+  $referensi = $nama_referensi ." - ". $no_hp_referensi . " - " . $status_referensi;
+  $con->query("UPDATE pelamar SET referensi='$referensi' WHERE nik='$_SESSION[level]'");
+        echo" 
+        <script>
+        Swal.fire({
+          title: 'Sukses',
+          text: 'Data Berhasil Disimpan',
+          icon: 'success',    
+          confirmButtonColor: '#3085d6',    
+          confirmButtonText: 'OK'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.href = 'http://localhost/lpk-pbi/profile_pelamar.php';      
+          } 
+        })  
+        </script>";
+        
+
+}
+?>

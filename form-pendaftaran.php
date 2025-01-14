@@ -285,6 +285,7 @@ if(isset($_POST['tambah'])){
     $foto = "-";
     $ket ="-";
     $cv ="-";
+    $referensi ="-";
    
 
     $cekNik = mysqli_query($con,"SELECT * FROM pelamar WHERE nik='$nik'");
@@ -413,8 +414,8 @@ if(isset($_POST['tambah'])){
         return false;
     }
           
-    $con->query("INSERT INTO pelamar (nik,email,password,nama_pelamar,jenis_kelamin,tempat_lahir,tgl_lahir,tb,bb,alamat,no_hp,no_hpDarurat,pengalaman,vaksin,tujuan,status,foto,keterangan,cv)
-    VALUES ('$nik','$email','$pw','$nama','$jenis_kelamin','$tempat_lahir','$tgl_lahir','$tb','$bb','$alamat','$no_hp','$no_hpDarurat','$pengalaman','$vaksin','$tujuan','$status','$foto','$et','$cv')");
+    $con->query("INSERT INTO pelamar (nik,email,password,nama_pelamar,jenis_kelamin,tempat_lahir,tgl_lahir,tb,bb,alamat,no_hp,no_hpDarurat,pengalaman,vaksin,tujuan,status,foto,keterangan,cv,referensi)
+    VALUES ('$nik','$email','$pw','$nama','$jenis_kelamin','$tempat_lahir','$tgl_lahir','$tb','$bb','$alamat','$no_hp','$no_hpDarurat','$pengalaman','$vaksin','$tujuan','$status','$foto','$et','$cv','$referensi')");
 
     echo"
         <script> Swal.fire({
