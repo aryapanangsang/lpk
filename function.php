@@ -47,4 +47,23 @@ function  tglindonesia($tgl)
 
 }
 
+
+function hitungUsia($tgl_lahir) {
+        // Mengubah tanggal lahir menjadi objek DateTime
+        $tanggal_lahir_obj = new DateTime($tgl_lahir);
+        $tanggal_sekarang = new DateTime(); // Tanggal saat ini
+        $selisih = $tanggal_sekarang->diff($tanggal_lahir_obj); // Menghitung selisih
+        
+        return $selisih->y; // Mengembalikan usia dalam tahun
+    }
+
+    function wa($no_hp) {
+        // Mengonversi input menjadi string jika bukan string
+        $no_hp = (string)$input;
+        $subs = substr($input, 1);
+        $wa = "https://wa.me/" . 62 .$subs;
+    
+        // Menghapus angka pertama menggunakan substr()
+        return $wa;
+    }
 ?>

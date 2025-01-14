@@ -109,41 +109,12 @@ $row3 = mysqli_fetch_assoc($magang);
     </div>            
     <p class="card-description"></p>    
     <div class="row">
-        <div class="col-sm-6">            
+        <div class="col-sm-12">            
             <div class="card bg-light">            
-            <div class="card-body">                
-                <div class="col-sm-12 d-flex justify-content-center">
-                    <img src="images/foto_profil/<?=$tampil['foto']?>" alt="" width="200px" height="200px" class="rounded-circle">                                
-                </div>               
-                <div class="col-sm-12 mt-3 d-flex justify-content-center">
-                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">
-                Ganti Foto
-                </button>
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <form action="" method="post" enctype="multipart/form-data">
-                    <div class="modal-body">                    
-                            <div class="label">Masukan Foto Profile</div>
-                            <input type="file" name="foto" class="form-control">                                                                          
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" name="update-profile" class="btn btn-primary">Save changes</button>
-                    </div>
-                    </div>
-                    </form>
-                </div>
-                </div>
-                </div>
-                <br>                                                            
+            <div class="card-body">                          
+            <br>                          
+            <div class="row">
+                <div class="col-sm-4">
                     <div class="text">
                         Nama Pelamar
                     </div>
@@ -151,83 +122,138 @@ $row3 = mysqli_fetch_assoc($magang);
                         <?= $tampil['nama_pelamar'] ?>
                     </div>
                     <hr>
+                </div>
+                
+                <div class="col-sm-2">
                     <div class="text">
                         Jenis Kelamin
                     </div>
                     <div class="isi text-secondary">
-                        <?= $tampil['jenis_kelamin'] ?>
+                    <?= $tampil['jenis_kelamin'] ?>
                     </div>
                     <hr>
+                </div>
+
+                <div class="col-sm-3">
                     <div class="text">
-                        Tempat Lahir
+                        Tempat, Tanggal Lahir
                     </div>
                     <div class="isi text-secondary">
-                        <?= $tampil['tempat_lahir'] ?>
+                    <?= $tampil['tempat_lahir'] . ", " . tglindonesia($tampil['tgl_lahir']) ?>
                     </div>
                     <hr>
+                </div>
+
+                <div class="col-sm-3">
                     <div class="text">
-                        Tanggal Lahir
+                        Usia
                     </div>
                     <div class="isi text-secondary">
-                        <?= tglindonesia($tampil['tgl_lahir']) ?>
+                    <?= hitungUsia($tampil['tgl_lahir']). " Tahun" ?>
                     </div>
                     <hr>
+                </div>
+                
+                <div class="col-sm-6">
                     <div class="text">
-                        Alamat
+                        Alamat KTP
                     </div>
                     <div class="isi text-secondary">
-                        <?= $tampil['alamat'] ?>
+                        <?=$tampil['alamat']?>
                     </div>
                     <hr>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="text">
+                        Alamat Domisili
+                    </div>
+                    <div class="isi text-secondary">
+                        <?=$tampil['alamat']?>
+                    </div>
+                    <hr>
+                </div>
+
+                <div class="col-sm-2">
                     <div class="text">
                         Tinggi Badan
                     </div>
                     <div class="isi text-secondary">
-                        <?= $tampil['tb']  ?> &nbsp; Cm
+                        <?=$tampil['tb']?> Cm
                     </div>
                     <hr>
+                </div>
+
+                <div class="col-sm-2">
                     <div class="text">
-                        Handphone
+                        Berat Badan
                     </div>
                     <div class="isi text-secondary">
-                        <a href="https://wa.me/<?= $tampil['no_hp']?>?text="><?= $tampil['no_hp'] ?></a>
+                        <?=$tampil['bb']?> Kg
                     </div>
                     <hr>
+                </div>
+
+                <div class="col-sm-2">
                     <div class="text">
-                        No. Telepon Darurat
+                        No. HP
                     </div>
                     <div class="isi text-secondary">
-                        <a href="https://wa.me/<?= $tampil['no_hpDarurat']?>?text="><?= $tampil['no_hpDarurat'] ?></a>
+                        <a href="https://wa.me/62<?=substr($tampil['no_hp'],1)?>"><?=$tampil['no_hp']?></a>
                     </div>
                     <hr>
+                </div>
+
+                <div class="col-sm-2">
+                    <div class="text">
+                        Kontak Darurat
+                    </div>
+                    <div class="isi text-secondary">
+                    <a href="https://wa.me/62<?=substr($tampil['no_hpDarurat'],1)?>"><?=$tampil['no_hpDarurat']?></a>
+                    </div>
+                    <hr>
+                </div>
+
+                <div class="col-sm-4">
                     <div class="text">
                         Email
                     </div>
                     <div class="isi text-secondary">
-                        <?= $tampil['email']?>
+                        <?=$tampil['email'] ?>
                     </div>
                     <hr>
+                </div>
+
+                <div class="col-sm-5">
                     <div class="text">
                         Pengalaman
                     </div>
                     <div class="isi text-secondary">
-                        <?= $tampil['pengalaman'] ?>
+                        <?=$tampil['pengalaman'] ?>
                     </div>
                     <hr>
+                </div>
+
+                <div class="col-sm-3">
                     <div class="text">
-                        Riwayat Vaksin
+                        Vaksin
                     </div>
                     <div class="isi text-secondary">
-                        <?= $tampil['vaksin'] ?>
+                        Dosis <?=$tampil['vaksin'] ?>
                     </div>
                     <hr>
+                </div>
+
+                <div class="col-sm-4">
                     <div class="text">
                         Kantor Tujuan
                     </div>
                     <div class="isi text-secondary">
-                        <?= $tampil['tujuan'] ?>
+                        Kantor <?=$tampil['tujuan'] ?>
                     </div>
                     <hr>
+                </div>
+            </div>                                        
                     
                 </div>
             </div>
