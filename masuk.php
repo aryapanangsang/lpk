@@ -148,7 +148,7 @@ if (isset($_POST['login'])) {
     if (mysqli_num_rows($cek)===1) { 
       $row = mysqli_fetch_assoc($cek);
         if(password_verify($password,$row['password'])==$row['password']){
-            $_SESSION['level']=$row['nik'];
+            $_SESSION['level']=$row['id_pelamar'];
             header("Location: home.php");
             die();
         }else{

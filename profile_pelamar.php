@@ -7,7 +7,7 @@ if (!isset($_SESSION["level"])){
     header("Location: login.php");
     exit;
 }
-$ambil = mysqli_query($con,"SELECT * FROM pelamar WHERE nik='$_SESSION[level]'");
+$ambil = mysqli_query($con,"SELECT * FROM pelamar WHERE id='$_SESSION[level]'");
 $cv = mysqli_fetch_assoc($ambil);
 $dataK = mysqli_query($con,"SELECT * FROM referensi INNER JOIN karyawan ON referensi.nip = karyawan.nip WHERE id_pelamar='$_SESSION[level]'");
 
