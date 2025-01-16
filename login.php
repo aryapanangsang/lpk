@@ -54,7 +54,10 @@ include 'koneksi.php';
                         <input type="password" class="form-control form-control-lg" name="password"  id="password"/>
                         <label class="form-label" for="password" id="password">Password</label>
                         </div>
-        
+
+                        <div class="form-group mb-3">
+                          <input type="checkbox" onclick="showPassword()">  Tampilkan Password                                          
+                        </div>
                         <div class="d-flex justify-content-center">
                         <button  type="submit" data-mdb-button-init
                             data-mdb-ripple-init class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" name="login">Login</button>
@@ -78,6 +81,17 @@ include 'koneksi.php';
     <!-- <script type="text/javascript" src="Assets/mdb/js/mdb.umd.min.js"></script> -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"></script>
     <!-- Custom scripts -->
+    <script>
+      function showPassword() {
+            var x = document.getElementById("password");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }    
+          }
+    </script>
+    <!-- End Costume Script -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>   
   </body>

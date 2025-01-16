@@ -65,9 +65,9 @@ date_default_timezone_set('Asia/Jakarta');
                                     <p class="card-text" style="text-align: center;">Silahkan Mengisi Formulir Dengan Menggunakan Data Yang Sebenarnya. <br> Jika Di Suatu Hari Terbukti Mengisi Data Palsu, Maka Segala Proses Tahapan Perekrutan Akan Dibatalkan</p>
                                 </div>
 
-                                <a href="form-pendaftaran.php" class="btn btn-light" style="width: max-content; border-radius: 20px; margin-left: auto; margin-right: auto;">Setuju & Lanjutkan</a>
+                                <a href="register.php" class="btn btn-light" style="width: max-content; border-radius: 20px; margin-left: auto; margin-right: auto;">Setuju & Lanjutkan</a>
                                 <br>
-                                <p style="text-align:center;"> Sudah Pernah Mendaftar ? LogIn <a class="btn btn-warning" style="border-radius:20px;" href="masuk.php">Disini</a></p>
+                                <p style="text-align:center;"> Sudah Pernah Mendaftar ? LogIn <a class="btn btn-warning" style="border-radius:20px;" href="login.php">Disini</a></p>
                             </div>
                         </div>
                     </div>                    

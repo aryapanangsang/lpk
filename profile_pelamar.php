@@ -7,7 +7,7 @@ if (!isset($_SESSION["level"])){
     header("Location: login.php");
     exit;
 }
-$ambil = mysqli_query($con,"SELECT * FROM pelamar WHERE id='$_SESSION[level]'");
+$ambil = mysqli_query($con,"SELECT * FROM pelamar WHERE id_pelamar='$_SESSION[level]'");
 $cv = mysqli_fetch_assoc($ambil);
 $dataK = mysqli_query($con,"SELECT * FROM referensi INNER JOIN karyawan ON referensi.nip = karyawan.nip WHERE id_pelamar='$_SESSION[level]'");
 
@@ -131,7 +131,7 @@ $dataK = mysqli_query($con,"SELECT * FROM referensi INNER JOIN karyawan ON refer
                   </li>                 
                   
                   <!-- Button Triger -->
-                   <?php if($cv['cv'] == "-"):?>
+                   <?php if($cv['cv'] == null):?>
                     <button type="button" class="btn btn-warning my-3" data-toggle="modal" data-target="#cv">Upload CV</button>
                     <?php else: ?>                  
                       <a href="uploads/<?=$cv['cv']?>" target="_blank">Buka CV (PDF)</a>  
@@ -386,7 +386,7 @@ $dataK = mysqli_query($con,"SELECT * FROM referensi INNER JOIN karyawan ON refer
   
 </html>  
 <?php
-  $cekpw =mysqli_query($con,"SELECT * FROM pelamar WHERE nik='$_SESSION[level]'");
+  $cekpw =mysqli_query($con,"SELECT * FROM pelamar WHERE id_pelamar='$_SESSION[level]'");
   $row = mysqli_fetch_assoc($cekpw);
   
   if(isset($_POST['ubah_pw'])){
@@ -397,7 +397,7 @@ $dataK = mysqli_query($con,"SELECT * FROM referensi INNER JOIN karyawan ON refer
       if($pw1 == $pw2){
         $acakpw= password_hash($pw1,PASSWORD_DEFAULT);
         echo "$acakpw";
-        $con->query("UPDATE pelamar SET password='$acakpw' WHERE nik='$_SESSION[level]'");
+        $con->query("UPDATE pelamar SET password='$acakpw' WHERE id_pelamar='$_SESSION[level]'");
         echo" 
         <script>
         Swal.fire({
@@ -444,7 +444,7 @@ $dataK = mysqli_query($con,"SELECT * FROM referensi INNER JOIN karyawan ON refer
             // Pindahkan file yang diupload ke folder 'uploads'
             if (move_uploaded_file($file['tmp_name'], $upload_dir . $new_filename)) {
                 // Simpan nama file ke database
-                $sql = "UPDATE pelamar SET cv = '$new_filename' WHERE nik='$_SESSION[level]'";
+                $sql = "UPDATE pelamar SET cv = '$new_filename' WHERE id_pelamar='$_SESSION[level]'";
                 
                 if ($con->query($sql) === TRUE) {                    
                     echo"
@@ -454,7 +454,9 @@ $dataK = mysqli_query($con,"SELECT * FROM referensi INNER JOIN karyawan ON refer
                         title: 'CV Kamu Berhasil Diupload',
                         showConfirmButton: false,
                         timer: 1500              
-                    }) 
+                    }).then((result) => {
+                      window.location.href = 'profile_pelamar.php'; 
+                    })  
                     </script>
                     ";        
                 } else {
@@ -487,7 +489,7 @@ if(isset($_POST['referensi'])){
   $no_hp_referensi =$_POST['no_hp_referensi'];
   $status_referensi =$_POST['hub_status'];
   $referensi = $nama_referensi ." - ". $no_hp_referensi . " - " . $status_referensi;
-  $con->query("UPDATE pelamar SET referensi='$referensi' WHERE nik='$_SESSION[level]'");
+  $con->query("UPDATE pelamar SET referensi='$referensi' WHERE id_pelamar='$_SESSION[level]'");
         echo" 
         <script>
         Swal.fire({

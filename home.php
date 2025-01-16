@@ -153,7 +153,7 @@ $row2 = mysqli_fetch_assoc($tes2);
                   <hr>                   
                   <label for="">CV / Lamaran</label>    
                   <p>
-                  <?php if($data['cv'] == '-'):?>
+                  <?php if($data['cv'] == null):?>
                     Belum Upload
                   <?php else:?>
                     <span>Teruplod</span> <br>   <a  class="btn btn-warning btn-sm" href="uploads/<?= $data['cv']?>"><i class="fa fa-eye" aria-hidden="true"></i> Lihat CV</a>

@@ -7,7 +7,7 @@ if (!isset($_SESSION['level'])){
 }
 
 
-$tampil = mysqli_query($con,"SELECT * FROM pelamar WHERE nik='$_SESSION[level]'");
+$tampil = mysqli_query($con,"SELECT * FROM pelamar WHERE id_pelamar='$_SESSION[level]'");
 
 $tes=mysqli_query($con,"SELECT * FROM tes_tulis WHERE id_pelamar='$_SESSION[level]'");
 $row = mysqli_fetch_assoc($tes);

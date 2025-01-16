@@ -8,7 +8,7 @@ include 'koneksi.php';
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8" />    
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Halaman Login</title>
     <link
@@ -51,7 +51,7 @@ include 'koneksi.php';
     </div>
 
     <script>
-      function myFunction() {
+      function showPassword() {
             var x = document.getElementById("pass");
             if (x.type === "password") {
                 x.type = "text";

@@ -52,7 +52,7 @@
 
                         <div data-mdb-input-init class="form-outline mb-4">
                         <input type="password" class="form-control form-control-lg" name="confirmPassword" id="confirmPassword"/>
-                        <label class="form-label" for="confirmPassword" id="confirmPassword">Repeat your password</label>
+                        <label class="form-label" for="confirmPassword" id="confirmPassword">Repeat Your Password</label>
                         </div>
                         <span id="message"></span><br><br>
         
@@ -61,7 +61,7 @@
                             data-mdb-ripple-init class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" name="signup">Register</button>
                         </div>
 
-                        <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="#!"
+                        <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="login.php"
                             class="fw-bold text-body"><u>Login here</u></a></p>
 
                     </form>
@@ -97,16 +97,6 @@
                 message.className = "error";
             }
         });
-
-        // Fungsi untuk validasi akhir saat form disubmit
-        // function validateForm() {
-        //     if (password.value !== confirmPassword.value) {
-        //         alert("Password tidak sesuai. Silakan periksa kembali.");
-        //         return false;
-        //     }
-        //     alert("Password sesuai. Formulir berhasil dikirim.");
-        //     return true;
-        // }
         
     </script>
   </body>
